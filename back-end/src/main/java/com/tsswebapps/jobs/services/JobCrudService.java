@@ -29,7 +29,7 @@ public class JobCrudService {
 
 	public JobSavedDto salvarJob(JobDto jobDto) {
 		User user = userCrudService
-				.findById(jobDto.getUserId())
+				.findByIdOptional(jobDto.getUserId())
 				.orElseThrow(RuntimeException::new);
 
 		Job jobSaved = repository.save(jobDto.toJob(user));

@@ -9,5 +9,7 @@ import com.tsswebapps.jobs.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
+	
+	User findByEmailAndSenha(String email, String senha);
 
 }
