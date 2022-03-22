@@ -1,6 +1,6 @@
 package com.tsswebapps.jobs.dto;
 
-public class JobSavedDto {
+public class JobResponseDto {
 	
 	private String id;
 	private String nome;
@@ -13,7 +13,7 @@ public class JobSavedDto {
 		return nome;
 	}
 
-	public JobSavedDto(String id, String nome) {
+	public JobResponseDto(String id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}

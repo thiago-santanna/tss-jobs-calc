@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import com.tsswebapps.jobs.entities.User;
 
-public class UserSaveDto {
+public class UserFormDto {
 	
 	private String id;
 
@@ -32,7 +32,7 @@ public class UserSaveDto {
 	}
 
 
-	public UserSaveDto(String id, String nome, String email, String senha, BigDecimal valorHora,
+	public UserFormDto(String id, String nome, String email, String senha, BigDecimal valorHora,
 			BigDecimal faturarPorMes, int diasTrabalharSemana, int horasTrabalharDia, int femanasFeriasAno,
 			String urlFoto) {
 

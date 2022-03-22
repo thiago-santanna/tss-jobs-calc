@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tsswebapps.jobs.dto.JobDto;
-import com.tsswebapps.jobs.dto.JobSavedDto;
+import com.tsswebapps.jobs.dto.JobFormDto;
+import com.tsswebapps.jobs.dto.JobResponseDto;
 import com.tsswebapps.jobs.entities.Job;
 import com.tsswebapps.jobs.entities.User;
 import com.tsswebapps.jobs.repository.JobRepository;
@@ -27,23 +27,23 @@ public class JobCrudService {
 		return byId.orElse(null);
 	}
 
-	public JobSavedDto salvarJob(JobDto jobDto) {
+	public JobResponseDto salvarJob(JobFormDto jobFormDto) {
 		User user = userCrudService
-				.findByIdOptional(jobDto.getUserId())
+				.findByIdOptional(jobFormDto.getUserId())
 				.orElseThrow(RuntimeException::new);
 
-		Job jobSaved = repository.save(jobDto.toJob(user));
+		Job jobSaved = repository.save(jobFormDto.toJob(user));
 
-		return new JobSavedDto(jobSaved.getId().toString(), jobSaved.getNome());
+		return new JobResponseDto(jobSaved.getId().toString(), jobSaved.getNome());
 	}
 
 	public void apagarJob(Job job) {
 		repository.delete(job);
 	}
 
-	public List<JobDto> listarJobsUsuario(UUID userId) {
+	public List<JobFormDto> listarJobsUsuario(UUID userId) {
 		return repository.findByUserId(userId)
-				.stream().map(JobDto::toJobDto)
+				.stream().map(JobFormDto::toJobDto)
 				.collect(Collectors.toList());
 	}
 }

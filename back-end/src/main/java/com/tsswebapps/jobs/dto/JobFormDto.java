@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.tsswebapps.jobs.entities.Job;
 import com.tsswebapps.jobs.entities.User;
 
-public class JobDto {
+public class JobFormDto {
 	
 	private String id;
 	
@@ -52,7 +52,7 @@ public class JobDto {
 		return userId;
 	}	
 
-	public JobDto(String id, String nome, String empresaSolicitante, String descricao, int horasDia,
+	public JobFormDto(String id, String nome, String empresaSolicitante, String descricao, int horasDia,
 			int horasEstimadaJob, BigDecimal valorEstimadoJob, UUID userId) {
 		this.id = id;
 		this.nome = nome;
@@ -72,8 +72,8 @@ public class JobDto {
 		this.id = id;
 	}
 
-	public static JobDto toJobDto(Job job) {
-		return new JobDto(job.getId().toString(), job.getNome(), job.getEmpresaSolicitante(), 
+	public static JobFormDto toJobDto(Job job) {
+		return new JobFormDto(job.getId().toString(), job.getNome(), job.getEmpresaSolicitante(), 
 				job.getDescricao(), job.getHorasDia(), job.getHorasEstimadaJob(),
 				job.getValorEstimadoJob(), job.getUser().getId());
 	}

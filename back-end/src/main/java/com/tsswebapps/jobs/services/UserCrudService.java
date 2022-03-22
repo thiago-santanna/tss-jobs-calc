@@ -6,8 +6,8 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tsswebapps.jobs.dto.UserSaveDto;
-import com.tsswebapps.jobs.dto.UserSavedDto;
+import com.tsswebapps.jobs.dto.UserFormDto;
+import com.tsswebapps.jobs.dto.UserResponseDto;
 import com.tsswebapps.jobs.entities.User;
 import com.tsswebapps.jobs.repository.UserRepository;
 
@@ -27,9 +27,9 @@ public class UserCrudService {
 		return repository.findById(id).orElse(null);
 	}
 	
-	public UserSavedDto salvarUsuario(UserSaveDto userDto) {
+	public UserResponseDto salvarUsuario(UserFormDto userDto) {
 		User user = repository.save(userDto.toUser());
 		
-		return new UserSavedDto(user.getId().toString(), user.getNome());
+		return new UserResponseDto(user.getId().toString(), user.getNome());
 	}
 }

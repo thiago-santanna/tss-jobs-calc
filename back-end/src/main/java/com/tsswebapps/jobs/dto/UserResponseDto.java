@@ -1,6 +1,6 @@
 package com.tsswebapps.jobs.dto;
 
-public class UserSavedDto {
+public class UserResponseDto {
 	private String id;
 
 	private String nome;
@@ -21,13 +21,13 @@ public class UserSavedDto {
 		this.nome = nome;
 	}
 
-	public UserSavedDto(String id, String nome) {
+	public UserResponseDto(String id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
 	}
 	
-	public UserSavedDto() {
+	public UserResponseDto() {
 		// TODO Auto-generated constructor stub
 	}
 }
