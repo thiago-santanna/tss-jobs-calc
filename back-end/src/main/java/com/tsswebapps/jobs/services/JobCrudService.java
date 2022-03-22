@@ -22,7 +22,7 @@ public class JobCrudService {
 
 	private UserCrudService userCrudService;
 
-	private Job jobPorId(UUID id) {
+	public Job jobPorId(UUID id) {
 		Optional<Job> byId = repository.findById(id);
 		return byId.orElse(null);
 	}
@@ -33,6 +33,12 @@ public class JobCrudService {
 				.orElseThrow(RuntimeException::new);
 
 		Job jobSaved = repository.save(jobFormDto.toJob(user));
+
+		return new JobResponseDto(jobSaved.getId().toString(), jobSaved.getNome());
+	}
+	
+	public JobResponseDto salvarJob(Job job) {
+		Job jobSaved = repository.save(job);
 
 		return new JobResponseDto(jobSaved.getId().toString(), jobSaved.getNome());
 	}

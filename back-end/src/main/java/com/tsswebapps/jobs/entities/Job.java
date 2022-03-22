@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.tsswebapps.jobs.dto.JobFormDto;
+
 @Entity
 public class Job {
 	@Id
@@ -132,5 +134,14 @@ public class Job {
 		this.horasEstimadaJob = horasEstimadaJob;
 		this.valorEstimadoJob = valorEstimadoJob;
 		this.user = user;
+	}
+
+	public void copyJob(JobFormDto formDto) {
+		this.nome = formDto.getNome();
+		this.descricao  = formDto.getDescricao();
+		this.empresaSolicitante = formDto.getEmpresaSolicitante();
+		this.horasDia = formDto.getHorasDia();
+		this.horasEstimadaJob = formDto.getHorasEstimadaJob();
+		this.valorEstimadoJob = formDto.getValorEstimadoJob();
 	}
 }
