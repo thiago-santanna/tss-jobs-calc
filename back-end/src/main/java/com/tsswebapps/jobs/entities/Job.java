@@ -15,19 +15,19 @@ public class Job {
 	@Id
 	@GeneratedValue
 	private UUID id;
-	
+
 	private String nome;
-	
+
 	private String empresaSolicitante;
-	
+
 	private String descricao;
-	
+
 	private int horasDia;
-	
+
 	private int horasEstimadaJob;
-	
+
 	private BigDecimal valorEstimadoJob;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User user;
@@ -117,7 +117,7 @@ public class Job {
 	public String toString() {
 		return "Job [id=" + id + ", nome=" + nome + "]";
 	}
-	
+
 	public Job() {
 		// TODO Auto-generated constructor stub
 	}
@@ -133,6 +133,4 @@ public class Job {
 		this.valorEstimadoJob = valorEstimadoJob;
 		this.user = user;
 	}
-	
-	
 }
