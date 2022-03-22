@@ -33,7 +33,7 @@ public class User {
 
 	private int horasTrabalharDia;
 
-	private int femanasFeriasAno;
+	private int semanasFeriasAno;
 
 	private String urlFoto;
 
@@ -105,11 +105,11 @@ public class User {
 	}
 
 	public int getFemanasFeriasAno() {
-		return femanasFeriasAno;
+		return semanasFeriasAno;
 	}
 
 	public void setFemanasFeriasAno(int femanasFeriasAno) {
-		this.femanasFeriasAno = femanasFeriasAno;
+		this.semanasFeriasAno = femanasFeriasAno;
 	}
 
 	public String getUrlFoto() {
@@ -142,7 +142,7 @@ public class User {
 		this.faturarPorMes = faturarPorMes;
 		this.diasTrabalharSemana = diasTrabalharSemana;
 		this.horasTrabalharDia = horasTrabalharDia;
-		this.femanasFeriasAno = femanasFeriasAno;
+		this.semanasFeriasAno = femanasFeriasAno;
 		this.urlFoto = urlFoto;
 		this.jobs = jobs;
 	}

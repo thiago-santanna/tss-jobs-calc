@@ -31,7 +31,6 @@ public class UserFormDto {
 		return id;
 	}
 
-
 	public UserFormDto(String id, String nome, String email, String senha, BigDecimal valorHora,
 			BigDecimal faturarPorMes, int diasTrabalharSemana, int horasTrabalharDia, int femanasFeriasAno,
 			String urlFoto) {
@@ -47,8 +46,6 @@ public class UserFormDto {
 		this.femanasFeriasAno = femanasFeriasAno;
 		this.urlFoto = urlFoto;
 	}
-
-
 
 	public String getNome() {
 		return nome;
@@ -86,8 +83,8 @@ public class UserFormDto {
 		return urlFoto;
 	}
 	
-	public User toUser() {
-		return new User(UUID.fromString(this.id),this. nome, this.email, this.senha, this.valorHora, 
+	public User toUser() {	
+		return new User(null, this. nome, this.email, this.senha, this.valorHora, 
 				this.faturarPorMes, this.diasTrabalharSemana, this.horasTrabalharDia, this.femanasFeriasAno, 
 				this.urlFoto, null);
 	}
