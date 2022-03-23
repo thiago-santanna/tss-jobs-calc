@@ -20,6 +20,7 @@ public class JobCrudService {
 	@Autowired
 	private JobRepository repository;
 
+	@Autowired
 	private UserCrudService userCrudService;
 
 	public Job jobPorId(UUID id) {
@@ -43,8 +44,8 @@ public class JobCrudService {
 		return new JobResponseDto(jobSaved.getId().toString(), jobSaved.getNome());
 	}
 
-	public void apagarJob(Job job) {
-		repository.delete(job);
+	public void apagarJob(UUID id) {
+		repository.deleteById(id);
 	}
 
 	public List<JobFormDto> listarJobsUsuario(UUID userId) {

@@ -20,9 +20,7 @@ public class UserController {
 	private UserCrudService userCrudService;
 	
 	@PostMapping
-	public ResponseEntity<UserResponseDto> salvar(@RequestBody UserFormDto userDto ) {
-		System.out.println(userDto.getNome());
-		
+	public ResponseEntity<UserResponseDto> salvar(@RequestBody UserFormDto userDto ) {	
 		UserResponseDto usuario = userCrudService.salvarUsuario(userDto);
 		return new ResponseEntity<>(usuario, HttpStatus.CREATED);
 	}

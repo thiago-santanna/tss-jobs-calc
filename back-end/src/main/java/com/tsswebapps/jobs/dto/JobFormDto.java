@@ -7,9 +7,9 @@ import com.tsswebapps.jobs.entities.Job;
 import com.tsswebapps.jobs.entities.User;
 
 public class JobFormDto {
-	
+
 	private String id;
-	
+
 	private String nome;
 
 	private String empresaSolicitante;
@@ -23,7 +23,7 @@ public class JobFormDto {
 	private BigDecimal valorEstimadoJob;
 
 	private UUID userId;
-		
+
 	public String getNome() {
 		return nome;
 	}
@@ -50,7 +50,7 @@ public class JobFormDto {
 
 	public UUID getUserId() {
 		return userId;
-	}	
+	}
 
 	public JobFormDto(String id, String nome, String empresaSolicitante, String descricao, int horasDia,
 			int horasEstimadaJob, BigDecimal valorEstimadoJob, UUID userId) {
@@ -73,14 +73,13 @@ public class JobFormDto {
 	}
 
 	public static JobFormDto toJobDto(Job job) {
-		return new JobFormDto(job.getId().toString(), job.getNome(), job.getEmpresaSolicitante(), 
-				job.getDescricao(), job.getHorasDia(), job.getHorasEstimadaJob(),
-				job.getValorEstimadoJob(), job.getUser().getId());
+		return new JobFormDto(job.getId().toString(), job.getNome(), job.getEmpresaSolicitante(), job.getDescricao(),
+				job.getHorasDia(), job.getHorasEstimadaJob(), job.getValorEstimadoJob(), job.getUser().getId());
 	}
 
 	public Job toJob(User user) {
-		return new Job(UUID.fromString(this.id), this.nome, this.empresaSolicitante, this.descricao,
-				this.horasDia, this.horasEstimadaJob, this.valorEstimadoJob, user);
+		return new Job(this.id == null ? null : UUID.fromString(this.id), this.nome, this.empresaSolicitante,
+				this.descricao, this.horasDia, this.horasEstimadaJob, this.valorEstimadoJob, user);
 	}
-	
+
 }

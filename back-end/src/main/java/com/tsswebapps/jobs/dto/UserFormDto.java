@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.tsswebapps.jobs.entities.User;
 
 public class UserFormDto {
-	
+
 	private String id;
 
 	private String nome;
@@ -26,7 +26,7 @@ public class UserFormDto {
 	private int femanasFeriasAno;
 
 	private String urlFoto;
-	
+
 	public String getId() {
 		return id;
 	}
@@ -82,11 +82,13 @@ public class UserFormDto {
 	public String getUrlFoto() {
 		return urlFoto;
 	}
-	
-	public User toUser() {	
-		return new User(null, this. nome, this.email, this.senha, this.valorHora, 
-				this.faturarPorMes, this.diasTrabalharSemana, this.horasTrabalharDia, this.femanasFeriasAno, 
-				this.urlFoto, null);
+
+	public User toUser() {
+		System.out.println(this.id);
+		
+		return new User(this.id == null ? null : UUID.fromString(this.id), this.nome, this.email, this.senha,
+				this.valorHora, this.faturarPorMes, this.diasTrabalharSemana, this.horasTrabalharDia,
+				this.femanasFeriasAno, this.urlFoto, null);
 	}
 
 }
