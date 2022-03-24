@@ -6,7 +6,7 @@ import NavForm from '../../components/nav-form'
 const User = () => {
   return (
     <>
-      <NavForm />
+      <NavForm title="Perfil" />
 
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-rows-1 md:grid-cols-3 md:gap-4 md:mt-2 md:p-2">
