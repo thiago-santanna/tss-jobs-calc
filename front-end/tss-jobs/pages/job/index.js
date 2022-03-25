@@ -2,8 +2,6 @@ import React from 'react';
 import NavForm from '../../components/nav-form';
 import { MdMonetizationOn, MdRecycling } from "react-icons/md";
 
-
-
 const Job = () => {
   return (
     <>
