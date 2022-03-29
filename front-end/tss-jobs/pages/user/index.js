@@ -6,26 +6,26 @@ import NavForm from '../../components/nav-form'
 const User = () => {
 
   const [usuario, setUsuario] = useState({
-    nome: "Thiago Santanna",
+    nome: "",
     email: "user@eail.com",
     senha: "123456",
-    valorHora: 80.0,
-    faturarPorMes: 7000,
-    diasTrabalharSemana: 5,
-    horasTrabalharDia: 8,
-    semanasFeriasAno: 2,
+    valorHora: 0,
+    faturarPorMes: 0,
+    diasTrabalharSemana: 0,
+    horasTrabalharDia: 0,
+    semanasFeriasAno: 0,
     urlFoto: "url da foto..."
   })
 
   const salvar = async () => {
     try {
-      console.log(usuario)
       const response = await fetch('http://localhost:8080/users', {
+        headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify(usuario)
       })
       const data = await response.json()
-      console.log(data)
+      alert("Usuário criado com sucesso", data.nome)
     }
     catch (err) {
 
